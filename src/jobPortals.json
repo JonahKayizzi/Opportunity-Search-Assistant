@@ -1,0 +1,15 @@
+{
+    "my_job_portals":
+    [
+        {
+            "name":"10up",
+        "url":"https://10up.com/careers/"
+        },
+        {
+            "name":"17hats",
+        "url":"https://www.17hats.com/careers"
+        }
+        
+    ]
+
+}
