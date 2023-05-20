@@ -6,10 +6,28 @@ import axios from 'axios';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const jobUrl = await axios.get('./jobPortals.json');
-const { my_job_portals } = await jobUrl.data;
-const { url } = my_job_portals[0];
-console.log(url);
+// eslint-disable-next-line import/no-extraneous-dependencies
+const cheerio = require('cheerio');
+
+const fetchData = async () => {
+  try {
+    const jobUrl = await axios.get('./jobPortals.json');
+    const { myJobPortals } = await jobUrl.data;
+    const { url } = myJobPortals[0];
+
+    const response = await axios.get(url);
+    const html = response.data;
+
+    const $ = cheerio.load(html);
+
+    const body = $('body').text().trim();
+    console.log(body);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+};
+
+fetchData();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

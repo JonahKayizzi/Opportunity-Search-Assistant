@@ -10,7 +10,7 @@ const initialState = {
 
 const urlsResponse = axios.get('../jobportals.json');
 const portalUrls = urlsResponse.data;
-//const jobData = [];
+// const jobData = [];
 
 export const getPortalData = createAsyncThunk(
   /*
@@ -25,7 +25,7 @@ export const getPortalData = createAsyncThunk(
   async () => {
     const response = await axios.get(portalUrls);
     return response.data;
-  }
+  },
 );
 
 const webcrawlerSlice = createSlice({
