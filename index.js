@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 const cheerio = require('cheerio');
 const axios = require('axios');
 const fs = require('fs');
@@ -8,7 +7,9 @@ const fetchData = async () => {
     const { myJobPortals } = JSON.parse(fs.readFileSync('./jobPortals.json'));
     const urls = myJobPortals.map((job) => job.url);
 
+    // eslint-disable-next-line no-restricted-syntax
     for (const url of urls) {
+      // eslint-disable-next-line no-await-in-loop
       const response = await axios.get(url);
       const html = response.data;
       const $ = cheerio.load(html);
