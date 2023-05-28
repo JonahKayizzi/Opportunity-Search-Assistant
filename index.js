@@ -12,9 +12,9 @@ const keywords = [
   'full stack',
   'full-stack',
   'redux',
-  'Rails',
-  'Ruby',
-  'Ruby on Rails',
+  'rails',
+  'ruby',
+  'ruby on rails',
 ];
 const fetchData = async () => {
   try {
@@ -31,6 +31,10 @@ const fetchData = async () => {
         ? console.log(`${job.name} has no new content`)
         : (() => {
             console.log(`${job.name} has changed`);
+            // eslint-disable-next-line no-unused-expressions
+            keywords.some((keyword) => body.toLowerCase().includes(keyword))
+              ? console.log('Email me this job')
+              : console.log('Not interested');
             job.content = body;
           })();
     }
