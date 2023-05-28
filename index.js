@@ -2,6 +2,20 @@ const cheerio = require('cheerio');
 const axios = require('axios');
 const fs = require('fs');
 
+const keywords = [
+  'javascript',
+  'node',
+  'react',
+  'frontend',
+  'backend',
+  'fullstack',
+  'full stack',
+  'full-stack',
+  'redux',
+  'Rails',
+  'Ruby',
+  'Ruby on Rails',
+];
 const fetchData = async () => {
   try {
     const { myJobPortals } = JSON.parse(fs.readFileSync('./jobPortals.json'));
