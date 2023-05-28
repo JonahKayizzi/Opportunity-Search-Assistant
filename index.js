@@ -36,6 +36,16 @@ const mailOptions = {
   html: '<b>New Job Alert</b>',
 };
 
+const writeLogToFile = (logMessage) => {
+  const timestamp = new Date().toISOString();
+  const log = `[${timestamp}]: ${logMessage}\n`;
+  fs.appendFileSync('log.txt', log, (err) => {
+    if (err) {
+      console.error('Error writing to log file');
+    }
+  });
+};
+
 const fetchData = async () => {
   try {
     const { myJobPortals } = JSON.parse(fs.readFileSync('./jobPortals.json'));
@@ -50,22 +60,22 @@ const fetchData = async () => {
       job.content === body
         ? console.log(`${job.name} has no new content`)
         : (() => {
-          console.log(`${job.name} has changed`);
-          // eslint-disable-next-line no-unused-expressions
-          keywords.some((keyword) => body.toLowerCase().includes(keyword))
-            ? (() => {
-              mailOptions.html = `<b>Visit their careers page ${job.url} to see the update</b>`;
-              transporter.sendMail(mailOptions, (error, info) => {
-                if (error) {
-                  console.log(error);
-                } else {
-                  console.log(`Email sent: ${info.response}`);
-                }
-              });
-            })()
-            : console.log('Not interested');
-          job.content = body;
-        })();
+            console.log(`${job.name} has changed`);
+            // eslint-disable-next-line no-unused-expressions
+            keywords.some((keyword) => body.toLowerCase().includes(keyword))
+              ? (() => {
+                  mailOptions.html = `<b>Visit their careers page ${job.url} to see the update</b>`;
+                  transporter.sendMail(mailOptions, (error, info) => {
+                    if (error) {
+                      console.log(error);
+                    } else {
+                      console.log(`Email sent: ${info.response}`);
+                    }
+                  });
+                })()
+              : console.log('Not interested');
+            job.content = body;
+          })();
     }
     fs.writeFileSync('./jobPortals.json', JSON.stringify({ myJobPortals }));
   } catch (error) {
