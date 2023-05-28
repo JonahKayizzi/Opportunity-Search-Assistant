@@ -58,22 +58,22 @@ const fetchData = async () => {
       const body = $('body').text().trim();
       // eslint-disable-next-line no-unused-expressions
       job.content === body
-        ? console.log(`${job.name} has no new content`)
+        ? writeLogToFile(`${job.name} has no new content`)
         : (() => {
-            console.log(`${job.name} has changed`);
+            writeLogToFile(`${job.name} has changed`);
             // eslint-disable-next-line no-unused-expressions
             keywords.some((keyword) => body.toLowerCase().includes(keyword))
               ? (() => {
                   mailOptions.html = `<b>Visit their careers page ${job.url} to see the update</b>`;
                   transporter.sendMail(mailOptions, (error, info) => {
                     if (error) {
-                      console.log(error);
+                      writeLogToFile(error);
                     } else {
-                      console.log(`Email sent: ${info.response}`);
+                      writeLogToFile(`Email sent: ${info.response}`);
                     }
                   });
                 })()
-              : console.log('Not interested');
+              : writeLogToFile('Not interested');
             job.content = body;
           })();
     }
