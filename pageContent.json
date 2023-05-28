@@ -1,0 +1,15 @@
+{
+    "myJobPortals":
+    [
+        {
+            "name":"10up",
+            "content":"https://10up.com/careers/"
+        },
+        {
+            "name":"FridayFinance",
+            "content":"https://fridayfinance.factorialhr.com/"
+        }
+        
+    ]
+
+}

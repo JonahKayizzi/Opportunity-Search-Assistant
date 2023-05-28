@@ -2,8 +2,8 @@
     "myJobPortals":
     [
         {
-        "name":"10up",
-        "url":"https://10up.com/careers/"
+            "name":"10up",
+            "url":"https://10up.com/careers/"
         },
         {
             "name":"FridayFinance",
