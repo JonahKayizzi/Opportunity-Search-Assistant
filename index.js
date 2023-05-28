@@ -30,13 +30,13 @@ const fetchData = async () => {
       job.content === body
         ? console.log(`${job.name} has no new content`)
         : (() => {
-            console.log(`${job.name} has changed`);
-            // eslint-disable-next-line no-unused-expressions
-            keywords.some((keyword) => body.toLowerCase().includes(keyword))
-              ? console.log('Email me this job')
-              : console.log('Not interested');
-            job.content = body;
-          })();
+          console.log(`${job.name} has changed`);
+          // eslint-disable-next-line no-unused-expressions
+          keywords.some((keyword) => body.toLowerCase().includes(keyword))
+            ? console.log('Email me this job')
+            : console.log('Not interested');
+          job.content = body;
+        })();
     }
     fs.writeFileSync('./jobPortals.json', JSON.stringify({ myJobPortals }));
   } catch (error) {
