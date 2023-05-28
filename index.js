@@ -5,17 +5,22 @@ const fs = require('fs');
 const fetchData = async () => {
   try {
     const { myJobPortals } = JSON.parse(fs.readFileSync('./jobPortals.json'));
-    const urls = myJobPortals.map((job) => job.url);
-
     // eslint-disable-next-line no-restricted-syntax
-    for (const url of urls) {
+    for (const job of myJobPortals) {
       // eslint-disable-next-line no-await-in-loop
-      const response = await axios.get(url);
+      const response = await axios.get(job.url);
       const html = response.data;
       const $ = cheerio.load(html);
       const body = $('body').text().trim();
-      console.log(body);
+      // eslint-disable-next-line no-unused-expressions
+      job.content === body
+        ? console.log(`${job.name} has no new content`)
+        : (() => {
+            console.log(`${job.name} has changed`);
+            job.content = body;
+          })();
     }
+    fs.writeFileSync('./jobPortals.json', JSON.stringify({ myJobPortals }));
   } catch (error) {
     console.error('Error:', error);
   }
