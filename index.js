@@ -1,6 +1,8 @@
 const cheerio = require('cheerio');
 const axios = require('axios');
 const fs = require('fs');
+// eslint-disable-next-line import/no-extraneous-dependencies
+const nodeMailer = require('nodemailer');
 
 const keywords = [
   'javascript',
@@ -16,6 +18,17 @@ const keywords = [
   'ruby',
   'ruby on rails',
 ];
+
+const transporter = nodeMailer.createTransport({
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false,
+  auth: {
+    user: 'jonahkayizzi@gmail.com',
+    pass: 'wgxuqcczoupjgloq',
+  },
+});
+
 const fetchData = async () => {
   try {
     const { myJobPortals } = JSON.parse(fs.readFileSync('./jobPortals.json'));
@@ -30,13 +43,13 @@ const fetchData = async () => {
       job.content === body
         ? console.log(`${job.name} has no new content`)
         : (() => {
-          console.log(`${job.name} has changed`);
-          // eslint-disable-next-line no-unused-expressions
-          keywords.some((keyword) => body.toLowerCase().includes(keyword))
-            ? console.log('Email me this job')
-            : console.log('Not interested');
-          job.content = body;
-        })();
+            console.log(`${job.name} has changed`);
+            // eslint-disable-next-line no-unused-expressions
+            keywords.some((keyword) => body.toLowerCase().includes(keyword))
+              ? (() => {})()
+              : console.log('Not interested');
+            job.content = body;
+          })();
     }
     fs.writeFileSync('./jobPortals.json', JSON.stringify({ myJobPortals }));
   } catch (error) {
