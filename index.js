@@ -41,7 +41,7 @@ const writeLogToFile = (logMessage) => {
   const log = `[${timestamp}]: ${logMessage}\n`;
   fs.appendFileSync('log.txt', log, (err) => {
     if (err) {
-      console.error('Error writing to log file');
+      writeLogToFile('Error writing to log file');
     }
   });
 };
@@ -60,26 +60,26 @@ const fetchData = async () => {
       job.content === body
         ? writeLogToFile(`${job.name} has no new content`)
         : (() => {
-            writeLogToFile(`${job.name} has changed`);
-            // eslint-disable-next-line no-unused-expressions
-            keywords.some((keyword) => body.toLowerCase().includes(keyword))
-              ? (() => {
-                  mailOptions.html = `<b>Visit their careers page ${job.url} to see the update</b>`;
-                  transporter.sendMail(mailOptions, (error, info) => {
-                    if (error) {
-                      writeLogToFile(error);
-                    } else {
-                      writeLogToFile(`Email sent: ${info.response}`);
-                    }
-                  });
-                })()
-              : writeLogToFile('Not interested');
-            job.content = body;
-          })();
+          writeLogToFile(`${job.name} has changed`);
+          // eslint-disable-next-line no-unused-expressions
+          keywords.some((keyword) => body.toLowerCase().includes(keyword))
+            ? (() => {
+              mailOptions.html = `<b>Visit their careers page ${job.url} to see the update</b>`;
+              transporter.sendMail(mailOptions, (error, info) => {
+                if (error) {
+                  writeLogToFile(error);
+                } else {
+                  writeLogToFile(`Email sent: ${info.response}`);
+                }
+              });
+            })()
+            : writeLogToFile('Not interested');
+          job.content = body;
+        })();
     }
     fs.writeFileSync('./jobPortals.json', JSON.stringify({ myJobPortals }));
   } catch (error) {
-    console.error('Error:', error);
+    writeLogToFile('Error:', error);
   }
 };
 
