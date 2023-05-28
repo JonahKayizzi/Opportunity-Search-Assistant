@@ -1,6 +1,8 @@
 const cheerio = require('cheerio');
 const axios = require('axios');
 const fs = require('fs');
+// eslint-disable-next-line import/no-extraneous-dependencies
+const nodeMailer = require('nodemailer');
 
 const keywords = [
   'javascript',
@@ -16,6 +18,24 @@ const keywords = [
   'ruby',
   'ruby on rails',
 ];
+
+const transporter = nodeMailer.createTransport({
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false,
+  auth: {
+    user: 'jonahkayizzi@gmail.com',
+    pass: 'wgxuqcczoupjgloq',
+  },
+});
+
+const mailOptions = {
+  from: 'jonahkayizzi@gmail.com',
+  to: 'jonahkayizzi@gmail.com',
+  subject: 'Opportunity Search Assistant - Job Update',
+  html: '<b>New Job Alert</b>',
+};
+
 const fetchData = async () => {
   try {
     const { myJobPortals } = JSON.parse(fs.readFileSync('./jobPortals.json'));
@@ -33,7 +53,16 @@ const fetchData = async () => {
           console.log(`${job.name} has changed`);
           // eslint-disable-next-line no-unused-expressions
           keywords.some((keyword) => body.toLowerCase().includes(keyword))
-            ? console.log('Email me this job')
+            ? (() => {
+              mailOptions.html = `<b>Visit their careers page ${job.url} to see the update</b>`;
+              transporter.sendMail(mailOptions, (error, info) => {
+                if (error) {
+                  console.log(error);
+                } else {
+                  console.log(`Email sent: ${info.response}`);
+                }
+              });
+            })()
             : console.log('Not interested');
           job.content = body;
         })();
