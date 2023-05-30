@@ -56,31 +56,35 @@ const fetchData = async () => {
       const html = response.data;
       const $ = cheerio.load(html);
       const body = $('body').text().trim();
-      // eslint-disable-next-line no-unused-expressions
-      job.content === body
-        ? writeLogToFile(`${job.name} has no new content`)
-        : (() => {
-          writeLogToFile(`${job.name} has changed`);
-          // eslint-disable-next-line no-unused-expressions
-          keywords.some((keyword) => body.toLowerCase().includes(keyword))
-            ? (() => {
-              mailOptions.html = `<b>Visit their careers page ${job.url} to see the update</b>`;
-              transporter.sendMail(mailOptions, (error, info) => {
-                if (error) {
-                  writeLogToFile(error);
-                } else {
-                  writeLogToFile(`Email sent: ${info.response}`);
-                }
-              });
-            })()
-            : writeLogToFile('Not interested');
-          job.content = body;
-        })();
+      if (job.content === body) {
+        writeLogToFile(`${job.name} has no new content`);
+      } else {
+        writeLogToFile(`${job.name} has changed`);
+        if (keywords.some((keyword) => body.toLowerCase().includes(keyword))) {
+          mailOptions.html = `<b>Visit their careers page ${job.url} to see the update</b>`;
+          transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+              writeLogToFile(error);
+            } else {
+              writeLogToFile(`Email sent: ${info.response}`);
+            }
+          });
+        } else {
+          writeLogToFile('Not interested');
+        }
+        job.content = body;
+      }
     }
     fs.writeFileSync('./jobPortals.json', JSON.stringify({ myJobPortals }));
   } catch (error) {
-    writeLogToFile('Error:', error);
+    writeLogToFile(`Error: ${error}`);
   }
 };
+
+const PORT = process.env.PORT || 3000;
+// eslint-disable-next-line no-undef
+app.listen(PORT, () => {
+  writeLogToFile(`Server is running on port ${PORT}`);
+});
 
 setInterval(fetchData, 1000 * 60 * 60 * 6);
