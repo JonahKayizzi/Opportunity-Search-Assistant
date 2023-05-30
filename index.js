@@ -81,10 +81,5 @@ const fetchData = async () => {
   }
 };
 
-const PORT = process.env.PORT || 3000;
-// eslint-disable-next-line no-undef
-app.listen(PORT, () => {
-  writeLogToFile(`Server is running on port ${PORT}`);
-});
-
-setInterval(fetchData, 1000 * 60 * 60 * 6);
+fetchData();
+//setInterval(fetchData, 1000 * 60 * 60 * 6);
