@@ -81,5 +81,4 @@ const fetchData = async () => {
   }
 };
 
-fetchData();
-//setInterval(fetchData, 1000 * 60 * 60 * 6);
+setInterval(fetchData, 1000 * 60 * 60 * 6);
