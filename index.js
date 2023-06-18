@@ -9,7 +9,12 @@ const keywords = [
   'node',
   'react',
   'frontend',
+  'front-end',
+  'front end',
   'backend',
+  'back-end',
+  'back end',
+  'developer',
   'fullstack',
   'full stack',
   'full-stack',
@@ -17,6 +22,14 @@ const keywords = [
   'rails',
   'ruby',
   'ruby on rails',
+  'web developer',
+  'web development',
+  'software engineer',
+  'software engineering',
+  'software developer',
+  'software development',
+  'php',
+  'symfony',
 ];
 
 const transporter = nodeMailer.createTransport({
@@ -32,7 +45,7 @@ const transporter = nodeMailer.createTransport({
 const mailOptions = {
   from: 'jonahkayizzi@gmail.com',
   to: 'jonahkayizzi@gmail.com',
-  subject: 'Opportunity Search Assistant - Job Update',
+  subject: 'Special update from OSA',
   html: '<b>New Job Alert</b>',
 };
 
@@ -51,11 +64,13 @@ const fetchData = async () => {
     const { myJobPortals } = JSON.parse(fs.readFileSync('./jobPortals.json'));
     // eslint-disable-next-line no-restricted-syntax
     for (const job of myJobPortals) {
+      writeLogToFile(`Checking ${job.name}`);
       // eslint-disable-next-line no-await-in-loop
       const response = await axios.get(job.url);
       const html = response.data;
       const $ = cheerio.load(html);
-      const body = $('body').text().trim();
+      // eslint-disable-next-line no-useless-escape
+      const body = $('body').text().replace(/[.'!\/\\ ]/g, '');
       if (job.content === body) {
         writeLogToFile(`${job.name} has no new content`);
       } else {
@@ -64,21 +79,21 @@ const fetchData = async () => {
           mailOptions.html = `<b>Visit their careers page ${job.url} to see the update</b>`;
           transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
-              writeLogToFile(error);
+              writeLogToFile(`Error sending email: ${error}`);
             } else {
-              writeLogToFile(`Email sent: ${info.response}`);
+              writeLogToFile(`${job.name} Email sent: ${info.response}`);
             }
           });
         } else {
-          writeLogToFile('Not interested');
+          writeLogToFile(`${job.name} Has No interesting jobs`);
         }
         job.content = body;
       }
     }
     fs.writeFileSync('./jobPortals.json', JSON.stringify({ myJobPortals }));
   } catch (error) {
-    writeLogToFile(`Error: ${error}`);
+    writeLogToFile(`Error reading or writing to json file: ${error}`);
   }
 };
 
-fetchData();
+setInterval(fetchData, 1000 * 60 * 60 * 5);
