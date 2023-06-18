@@ -45,7 +45,7 @@ const transporter = nodeMailer.createTransport({
 const mailOptions = {
   from: 'jonahkayizzi@gmail.com',
   to: 'jonahkayizzi@gmail.com',
-  subject: 'Opportunity Search Assistant - Job Update',
+  subject: 'Special update from OSA',
   html: '<b>New Job Alert</b>',
 };
 
