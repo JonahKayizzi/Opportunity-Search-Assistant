@@ -69,6 +69,7 @@ const fetchData = async () => {
       const response = await axios.get(job.url);
       const html = response.data;
       const $ = cheerio.load(html);
+      // eslint-disable-next-line no-useless-escape
       const body = $('body').text().replace(/[.'!\/\\ ]/g, '');
       if (job.content === body) {
         writeLogToFile(`${job.name} has no new content`);
