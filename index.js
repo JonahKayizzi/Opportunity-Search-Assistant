@@ -9,7 +9,12 @@ const keywords = [
   'node',
   'react',
   'frontend',
+  'front-end',
+  'front end',
   'backend',
+  'back-end',
+  'back end',
+  'developer',
   'fullstack',
   'full stack',
   'full-stack',
@@ -17,6 +22,14 @@ const keywords = [
   'rails',
   'ruby',
   'ruby on rails',
+  'web developer',
+  'web development',
+  'software engineer',
+  'software engineering',
+  'software developer',
+  'software development',
+  'php',
+  'symfony',
 ];
 
 const transporter = nodeMailer.createTransport({
