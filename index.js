@@ -51,11 +51,12 @@ const fetchData = async () => {
     const { myJobPortals } = JSON.parse(fs.readFileSync('./jobPortals.json'));
     // eslint-disable-next-line no-restricted-syntax
     for (const job of myJobPortals) {
+      writeLogToFile(`Checking ${job.name}`);
       // eslint-disable-next-line no-await-in-loop
       const response = await axios.get(job.url);
       const html = response.data;
       const $ = cheerio.load(html);
-      const body = $('body').text().trim();
+      const body = $('body').text().replace(/[.'!\/\\ ]/g, '');
       if (job.content === body) {
         writeLogToFile(`${job.name} has no new content`);
       } else {
@@ -64,20 +65,20 @@ const fetchData = async () => {
           mailOptions.html = `<b>Visit their careers page ${job.url} to see the update</b>`;
           transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
-              writeLogToFile(error);
+              writeLogToFile(`Error sending email: ${error}`);
             } else {
-              writeLogToFile(`Email sent: ${info.response}`);
+              writeLogToFile(`${job.name} Email sent: ${info.response}`);
             }
           });
         } else {
-          writeLogToFile('Not interested');
+          writeLogToFile(`${job.name} Has No interesting jobs`);
         }
         job.content = body;
       }
     }
     fs.writeFileSync('./jobPortals.json', JSON.stringify({ myJobPortals }));
   } catch (error) {
-    writeLogToFile(`Error: ${error}`);
+    writeLogToFile(`Error reading or writing to json file: ${error}`);
   }
 };
 

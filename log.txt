@@ -26,3 +26,106 @@
 [2023-05-30T09:28:12.878Z]: Audiense has no new content
 [2023-05-30T09:28:14.730Z]: Aula has no new content
 [2023-05-30T09:28:15.589Z]: BandLab FrontEnd has no new content
+[2023-06-18T10:34:30.047Z]: BuySellAds has changed
+[2023-06-18T10:34:32.007Z]: Buffe has changed
+[2023-06-18T10:34:32.016Z]: Not interested
+[2023-06-18T10:34:32.384Z]: Error: AxiosError: Request failed with status code 403
+[2023-06-18T10:34:32.921Z]: Email sent: 250 2.0.0 OK  1687084472 y8-20020a7bcd88000000b003f904272d51sm4121541wmj.37 - gsmtp
+[2023-06-18T10:45:10.297Z]: BuySellAds has changed
+[2023-06-18T10:45:12.427Z]: Buffe has changed
+[2023-06-18T10:45:12.471Z]: Buffe Has No interesting jobs
+[2023-06-18T10:45:12.858Z]: Error: AxiosError: Request failed with status code 403
+[2023-06-18T10:45:13.377Z]: BuySellAds Email sent: 250 2.0.0 OK  1687085113 s2-20020adfecc2000000b0030aed4223e0sm28212748wro.105 - gsmtp
+[2023-06-18T11:01:59.502Z]: BuySellAds has changed
+[2023-06-18T11:02:01.435Z]: Buffe has changed
+[2023-06-18T11:02:01.437Z]: Buffe Has No interesting jobs
+[2023-06-18T11:02:01.816Z]: Error reading or writing to json file: AxiosError: Request failed with status code 403
+[2023-06-18T11:02:02.107Z]: BuySellAds Email sent: 250 2.0.0 OK  1687086122 r19-20020a05600c285300b003f605566610sm7395079wmb.13 - gsmtp
+[2023-06-18T11:08:12.500Z]: Checking BuySellAds
+[2023-06-18T11:08:16.699Z]: BuySellAds has changed
+[2023-06-18T11:08:16.706Z]: Checking Buffe
+[2023-06-18T11:08:18.490Z]: Buffe has changed
+[2023-06-18T11:08:18.492Z]: Buffe Has No interesting jobs
+[2023-06-18T11:08:18.492Z]: Checking BrainStormForce
+[2023-06-18T11:08:18.722Z]: Error reading or writing to json file: AxiosError: Request failed with status code 403
+[2023-06-18T11:08:18.894Z]: BuySellAds Email sent: 250 2.0.0 OK  1687086498 f18-20020a1cc912000000b003f5ffba9ae1sm7423659wmb.24 - gsmtp
+[2023-06-18T11:09:03.300Z]: Checking BuySellAds
+[2023-06-18T11:09:03.671Z]: BuySellAds has changed
+[2023-06-18T11:09:03.677Z]: Checking Buffe
+[2023-06-18T11:09:05.532Z]: Buffe has changed
+[2023-06-18T11:09:05.534Z]: Buffe Has No interesting jobs
+[2023-06-18T11:09:05.541Z]: Checking Bitzesty
+[2023-06-18T11:09:05.864Z]: BuySellAds Email sent: 250 2.0.0 OK  1687086545 i17-20020a5d6311000000b0030fae360f14sm23026525wru.68 - gsmtp
+[2023-06-18T11:09:06.470Z]: Bitzesty has changed
+[2023-06-18T11:09:06.471Z]: Checking BestPractical
+[2023-06-18T11:09:08.462Z]: BestPractical has changed
+[2023-06-18T11:09:08.464Z]: Checking Adblock
+[2023-06-18T11:09:08.626Z]: Bitzesty Email sent: 250 2.0.0 OK  1687086548 g13-20020a5d46cd000000b003112f836d4esm3273469wrs.85 - gsmtp
+[2023-06-18T11:09:09.395Z]: Adblock has changed
+[2023-06-18T11:09:09.396Z]: Checking Simplero
+[2023-06-18T11:09:10.469Z]: BestPractical Email sent: 250 2.0.0 OK  1687086550 o1-20020a05600c378100b003f50d6ee334sm7379258wmr.47 - gsmtp
+[2023-06-18T11:09:10.829Z]: Simplero has changed
+[2023-06-18T11:09:10.831Z]: Simplero Has No interesting jobs
+[2023-06-18T11:09:10.831Z]: Checking TimeZest
+[2023-06-18T11:09:11.650Z]: Adblock Email sent: 250 2.0.0 OK  1687086551 k6-20020adfd846000000b003111025ec67sm10694587wrl.25 - gsmtp
+[2023-06-18T11:09:12.534Z]: TimeZest has changed
+[2023-06-18T11:09:12.535Z]: Checking Remote Africa
+[2023-06-18T11:09:13.902Z]: Remote Africa has changed
+[2023-06-18T11:09:13.903Z]: Checking 10up
+[2023-06-18T11:09:14.618Z]: TimeZest Email sent: 250 2.0.0 OK  1687086554 k25-20020a7bc419000000b003f96d10eafbsm708009wmi.12 - gsmtp
+[2023-06-18T11:09:15.943Z]: 10up has changed
+[2023-06-18T11:09:15.943Z]: Checking FridayFinance
+[2023-06-18T11:09:16.831Z]: Remote Africa Email sent: 250 2.0.0 OK  1687086556 t12-20020adfeb8c000000b0030ae6432504sm28452992wrn.38 - gsmtp
+[2023-06-18T11:09:17.393Z]: FridayFinance has changed
+[2023-06-18T11:09:17.394Z]: Checking App Write
+[2023-06-18T11:09:18.115Z]: 10up Email sent: 250 2.0.0 OK  1687086558 e16-20020adffc50000000b0030fbb834074sm20699996wrs.15 - gsmtp
+[2023-06-18T11:09:18.796Z]: App Write has changed
+[2023-06-18T11:09:18.798Z]: Checking argyle
+[2023-06-18T11:09:19.394Z]: FridayFinance Email sent: 250 2.0.0 OK  1687086559 r17-20020a5d52d1000000b002c71b4d476asm28407696wrv.106 - gsmtp
+[2023-06-18T11:09:20.498Z]: argyle has changed
+[2023-06-18T11:09:20.501Z]: Checking Articulate
+[2023-06-18T11:09:20.817Z]: App Write Email sent: 250 2.0.0 OK  1687086560 f11-20020a5d50cb000000b0030fb828511csm21834267wrt.100 - gsmtp
+[2023-06-18T11:09:22.357Z]: Articulate has changed
+[2023-06-18T11:09:22.363Z]: Checking Audiense
+[2023-06-18T11:09:22.579Z]: argyle Email sent: 250 2.0.0 OK  1687086562 v18-20020a5d6112000000b003112dbc3257sm3519007wrt.90 - gsmtp
+[2023-06-18T11:09:26.744Z]: Audiense has changed
+[2023-06-18T11:09:26.745Z]: Checking Aula
+[2023-06-18T11:09:27.808Z]: Articulate Email sent: 250 2.0.0 OK  1687086567 f9-20020a7bc8c9000000b003f8f9ab6f30sm6433612wml.20 - gsmtp
+[2023-06-18T11:09:28.448Z]: Aula has changed
+[2023-06-18T11:09:28.449Z]: Checking BandLab FrontEnd
+[2023-06-18T11:09:28.816Z]: Audiense Email sent: 250 2.0.0 OK  1687086568 t13-20020a1c770d000000b003f91e32b1ebsm960880wmi.17 - gsmtp
+[2023-06-18T11:09:29.011Z]: BandLab FrontEnd has changed
+[2023-06-18T11:09:29.011Z]: BandLab FrontEnd Has No interesting jobs
+[2023-06-18T11:09:30.527Z]: Aula Email sent: 250 2.0.0 OK  1687086570 y17-20020a1c4b11000000b003f7f249e7dfsm6681216wma.4 - gsmtp
+[2023-06-18T11:12:22.034Z]: Checking BuySellAds
+[2023-06-18T11:12:24.491Z]: BuySellAds has no new content
+[2023-06-18T11:12:24.491Z]: Checking Buffe
+[2023-06-18T11:12:26.267Z]: Buffe has no new content
+[2023-06-18T11:12:26.268Z]: Checking Bitzesty
+[2023-06-18T11:12:26.758Z]: Bitzesty has no new content
+[2023-06-18T11:12:26.758Z]: Checking BestPractical
+[2023-06-18T11:12:27.637Z]: BestPractical has no new content
+[2023-06-18T11:12:27.637Z]: Checking Adblock
+[2023-06-18T11:12:28.310Z]: Adblock has no new content
+[2023-06-18T11:12:28.310Z]: Checking Simplero
+[2023-06-18T11:12:29.738Z]: Simplero has no new content
+[2023-06-18T11:12:29.738Z]: Checking TimeZest
+[2023-06-18T11:12:31.394Z]: TimeZest has no new content
+[2023-06-18T11:12:31.394Z]: Checking Remote Africa
+[2023-06-18T11:12:33.288Z]: Remote Africa has no new content
+[2023-06-18T11:12:33.288Z]: Checking 10up
+[2023-06-18T11:12:34.792Z]: 10up has no new content
+[2023-06-18T11:12:34.792Z]: Checking FridayFinance
+[2023-06-18T11:12:35.309Z]: FridayFinance has no new content
+[2023-06-18T11:12:35.309Z]: Checking App Write
+[2023-06-18T11:12:36.074Z]: App Write has no new content
+[2023-06-18T11:12:36.074Z]: Checking argyle
+[2023-06-18T11:12:37.337Z]: argyle has no new content
+[2023-06-18T11:12:37.338Z]: Checking Articulate
+[2023-06-18T11:12:39.134Z]: Articulate has no new content
+[2023-06-18T11:12:39.135Z]: Checking Audiense
+[2023-06-18T11:12:40.261Z]: Audiense has no new content
+[2023-06-18T11:12:40.261Z]: Checking Aula
+[2023-06-18T11:12:42.074Z]: Aula has no new content
+[2023-06-18T11:12:42.074Z]: Checking BandLab FrontEnd
+[2023-06-18T11:12:43.365Z]: BandLab FrontEnd has no new content
