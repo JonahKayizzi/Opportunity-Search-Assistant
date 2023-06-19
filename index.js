@@ -70,7 +70,9 @@ const fetchData = async () => {
       const html = response.data;
       const $ = cheerio.load(html);
       // eslint-disable-next-line no-useless-escape
-      const body = $('body').text().replace(/[.'!\/\\ ]/g, '');
+      const body = $('body')
+        .text()
+        .replace(/[.'!\/\\ ]/g, '');
       if (job.content === body) {
         writeLogToFile(`${job.name} has no new content`);
       } else {
@@ -96,4 +98,4 @@ const fetchData = async () => {
   }
 };
 
-setInterval(fetchData, 1000 * 60 * 60 * 5);
+fetchData;
