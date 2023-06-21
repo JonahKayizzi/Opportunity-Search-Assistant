@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 const cheerio = require('cheerio');
 const axios = require('axios');
 const fs = require('fs');
@@ -69,7 +70,6 @@ const fetchData = async () => {
       const response = await axios.get(job.url);
       const html = response.data;
       const $ = cheerio.load(html);
-      // eslint-disable-next-line no-useless-escape
       const body = $('body')
         .text()
         .replace(/[.'!\/\\ ]/g, '');
@@ -98,4 +98,4 @@ const fetchData = async () => {
   }
 };
 
-fetchData;
+fetchData();
